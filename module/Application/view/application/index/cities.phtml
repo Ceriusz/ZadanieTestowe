@@ -1,0 +1,31 @@
+<table class="table table-bordered">
+	<tr>
+	<?php
+	foreach ($fields['headers'] as $field)
+	{	
+		?> 
+		<th><?php echo $field ?></th>
+		<?php 
+	}
+	?>
+	</tr>
+	<?php 
+	foreach ($cities as $city)
+	{
+		?>
+		<tr>
+		<?php
+		foreach ($fields['methods'] as $field)
+		{	
+			?> 
+			<td><?php echo $city->$field() ?></td>
+			<?php 
+		}
+		?>
+		</tr>
+	<?php
+	}
+	?>
+</table>
+
+<script src = "../../../../../zadanietestowe/public/js/ajaxGetCities.js"></script>
