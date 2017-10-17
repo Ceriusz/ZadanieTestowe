@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Country
 {
-    
     const CONTINENT_ASIA            = 'Asia';
     const CONTINENT_EUROPE          = 'Europe';
     const CONTINENT_NORTH_AMERICA   = 'North America';
@@ -21,14 +20,6 @@ class Country
     const CONTINENT_ANTARCTICA      = 'Antarctica';
     const CONTINENT_SOUTH_AMERICA   = 'South America';
     
-//    /**
-//     * @var integer
-//     *
-//     * @ORM\Column(name="id", type="integer", nullable=false)
-//     * @ORM\Id
-//     * @ORM\GeneratedValue(strategy="IDENTITY")
-//     */
-//    private $id;
     
     /**
      * @var integer
@@ -157,16 +148,6 @@ class Country
      */
     private $city;
     
-        
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-//    public function getId()
-//    {
-//        return $this->id;
-//    }
     
     /**
      * Get name
@@ -188,7 +169,6 @@ class Country
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
     }
     
     /**
@@ -211,7 +191,6 @@ class Country
     public function setCapital($capital)
     {
         $this->capital = $capital;
-        return $this;
     }
     
     /**
@@ -234,7 +213,6 @@ class Country
     public function setCode($code)
     {
         $this->code = $code;
-        return $this;
     }
     
     /**
@@ -257,7 +235,6 @@ class Country
     public function setCode2($code2)
     {
         $this->code2 = $code2;
-        return $this;
     }
     
     /**
@@ -284,7 +261,6 @@ class Country
             throw new \InvalidArgumentException("Invalid continent value");
         }
         $this->continent = $continent;
-        return $this;
     }
     
     /**
@@ -307,7 +283,6 @@ class Country
     public function setGNP($GNP)
     {
         $this->GNP = $GNP;
-        return $this;
     }
     
     /**
@@ -330,7 +305,6 @@ class Country
     public function setGNPOld($GNPOld)
     {
         $this->GNPOld = $GNPOld;
-        return $this;
     }
     
     /**
@@ -353,7 +327,6 @@ class Country
     public function setGovernmentForm($governmentForm)
     {
         $this->governmentForm = $governmentForm;
-        return $this;
     }
     
     /**
@@ -376,7 +349,6 @@ class Country
     public function setHeadOfState($headOfState)
     {
         $this->headOfState = $headOfState;
-        return $this;
     }
     
     /**
@@ -399,7 +371,6 @@ class Country
     public function setIndepYear($indepYear)
     {
         $this->indepYear = $indepYear;
-        return $this;
     }
     
     /**
@@ -422,7 +393,6 @@ class Country
     public function setLifeExpectancy($lifeExpectancy)
     {
         $this->lifeExpectancy = $lifeExpectancy;
-        return $this;
     }
     
     /**
@@ -445,7 +415,6 @@ class Country
     public function setLocalName($localName)
     {
         $this->localName = $localName;
-        return $this;
     }
     
     /**
@@ -468,7 +437,6 @@ class Country
     public function setPopulation($population)
     {
         $this->population = $population;
-        return $this;
     }
     
     /**
@@ -491,7 +459,6 @@ class Country
     public function setRegion($region)
     {
         $this->region = $region;
-        return $this;
     }
     
     /**
@@ -514,6 +481,5 @@ class Country
     public function setSurfaceArea($surfaceArea)
     {
         $this->surfaceArea = $surfaceArea;
-        return $this;
     }
 }

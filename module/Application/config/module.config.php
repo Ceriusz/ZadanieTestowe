@@ -23,16 +23,6 @@ return [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'cities',
                     ],
-//                    'route'    => '/cities',
-//                    'defaults' => [
-//                        'controller' => Controller\IndexController::class,
-//                        'action'     => 'cities',
-//                    ],
-//                    'route'    => '/ajaxcities',
-//                    'defaults' => [
-//                        'controller' => Controller\IndexController::class,
-//                        'action'     => 'ajaxGetCities',
-//                    ],
                 ],
             ],
             'application' => [

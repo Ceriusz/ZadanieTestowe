@@ -15,14 +15,6 @@ class CountryLanguage
     const OFFICIAL_TRUE = 'T';
     const OFFICIAL_FALSE = 'F';
     
-//    /**
-//     * @var integer
-//     *
-//     * @ORM\Column(name="id", type="integer", nullable=false)
-//     * @ORM\Id
-//     * @ORM\GeneratedValue(strategy="IDENTITY")
-//     */
-//    private $id;
     
     /**
      * @var string
@@ -62,16 +54,7 @@ class CountryLanguage
      * @ORM\JoinColumn(name="country_code", referencedColumnName="country_code")
      */
     private $city;
-     
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-//    public function getId()
-//    {
-//        return $this->id;
-//    }
+
     
     /**
      * Get countryCode
@@ -93,7 +76,6 @@ class CountryLanguage
     public function setCountryCode($countryCode)
     {
         $this->countryCode = $countryCode;
-        return $this;
     }
     
     /**
@@ -116,7 +98,6 @@ class CountryLanguage
     public function setLanguage($language)
     {
         $this->language = $language;
-        return $this;
     }
     
     /**
@@ -142,7 +123,6 @@ class CountryLanguage
             throw new \InvalidArgumentException("Invalid isOfficial value");
         }
         $this->isOfficial = $isOfficial;
-        return $this;
     }
 
     /**
@@ -165,7 +145,5 @@ class CountryLanguage
     public function setPercentage($percentage)
     {
         $this->percentage = $percentage;
-        return $this;
-    }
-        
+    }      
 }

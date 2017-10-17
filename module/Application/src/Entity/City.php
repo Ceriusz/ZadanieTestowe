@@ -105,7 +105,6 @@ class City
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
     }
     
     /**
@@ -128,7 +127,6 @@ class City
     public function setCountryCode($countryCode)
     {
         $this->countryCode = $countryCode;
-        return $this;
     }
     
     /**
@@ -151,7 +149,6 @@ class City
     public function setDistrict($district)
     {
         $this->district = $district;
-        return $this;
     }
     
     /**
@@ -174,7 +171,6 @@ class City
     public function setPopulation($population)
     {
         $this->population = $population;
-        return $this;
     }
     
     /**
@@ -197,7 +193,6 @@ class City
     public function setCountryName($countryName)
     {
         $this->country->setName($countryName);
-        return $this;
     }
     
     /**
@@ -220,7 +215,5 @@ class City
     public function setCountryLanguage($countryLanguage)
     {
         $this->countryLanguage->setLanguage($countryLanguage);
-        return $this;
-    }
-        
+    }       
 }

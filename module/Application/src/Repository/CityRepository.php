@@ -14,8 +14,7 @@ class CityRepository extends EntityRepository
 
         $queryBuilder->select('c')
             ->from(City::class, 'c')
-//            ->where('p.status = ?1')
-            ->orderBy('c.name', 'DESC');
+            ->orderBy('c.name', 'ASC');
 
         return $queryBuilder->getQuery();
     }
