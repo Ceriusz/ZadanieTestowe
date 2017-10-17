@@ -19,7 +19,8 @@
         "doctrine/doctrine-orm-module": "^1.1",
         "twbs/bootstrap": "^3.3",
         "oxcom/zend-twig": "^0.1.6",
-        "zendframework/zend-json": "^3.0"
+        "zendframework/zend-json": "^3.0",
+        "zendframework/zend-paginator": "^2.7"
     },
     "autoload": {
         "psr-4": {

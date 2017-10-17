@@ -27,7 +27,7 @@ class CountryLanguage
     /**
      * @var string
      *
-     * @ORM\Column(name="countryCode", type="string", length=3)
+     * @ORM\Column(name="country_code", type="string", length=3)
      * @ORM\Id
      *
      */
@@ -44,7 +44,7 @@ class CountryLanguage
     /**
      * @var string
      *
-     * @ORM\Column(name="isOfficial", type="string")
+     * @ORM\Column(name="is_official", type="string")
      *
      */
     private $isOfficial;
@@ -56,6 +56,12 @@ class CountryLanguage
      *
      */
     private $percentage;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="\Application\Entity\City", mappedBy="countryLanguage")
+     * @ORM\JoinColumn(name="country_code", referencedColumnName="country_code")
+     */
+    private $city;
      
     /**
      * Get id

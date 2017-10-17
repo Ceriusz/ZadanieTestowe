@@ -28,4 +28,9 @@
 	?>
 </table>
 
+<?= $this->paginationControl($cities,
+            'Sliding',
+            'application/partial/paginator', 
+            ['route' => 'application']); ?>
+
 <script src = "../../../../../zadanietestowe/public/js/ajaxGetCities.js"></script>

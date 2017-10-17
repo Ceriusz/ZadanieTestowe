@@ -18,16 +18,16 @@ return [
             'home' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/',
-                    'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
-                    ],
-                    'route'    => '/cities',
+                    'route'    => '/application',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'cities',
                     ],
+//                    'route'    => '/cities',
+//                    'defaults' => [
+//                        'controller' => Controller\IndexController::class,
+//                        'action'     => 'cities',
+//                    ],
 //                    'route'    => '/ajaxcities',
 //                    'defaults' => [
 //                        'controller' => Controller\IndexController::class,
@@ -41,7 +41,7 @@ return [
                     'route'    => '/application[/:action]',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
+                        'action'     => 'cities',
                     ],
                 ],
             ],
