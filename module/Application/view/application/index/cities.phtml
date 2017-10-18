@@ -4,7 +4,7 @@
 	foreach ($fields['headers'] as $field)
 	{	
 		?> 
-		<th><?php echo $field ?></th>
+		<th><?php echo $field ?> <a class="sort" href="<?php echo $this->url('application').'?page='.$page.'&orderBy='.lcfirst($field).'&order=desc' ?>">^</a> <a class="sort" href="<?php echo $this->url('application').'?page='.$page.'&orderBy='.lcfirst($field).'&order=asc' ?>">?</a> </th>
 		<?php 
 	}
 	?>
@@ -30,7 +30,7 @@
 
 <?= $this->paginationControl($cities,
             'Sliding',
-            'application/partial/paginator', 
-            ['route' => 'application']); ?>
+            'application/partial/paginator',            
+            ['route' => 'application', 'orderBy' => $orderBy, 'order' => $order] ); ?>
 
 <script src = "../../../../../zadanietestowe/public/js/ajaxGetCities.js"></script>

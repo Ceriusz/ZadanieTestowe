@@ -2,8 +2,6 @@
 namespace Application\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Application\Entity\Country;
-use Application\Entity\CountryLanguage;
 
 /**
  * City
@@ -100,7 +98,6 @@ class City
      *
      * @param string $name
      *
-     * @return City
      */
     public function setName($name)
     {
@@ -122,7 +119,6 @@ class City
      *
      * @param string $countryCode
      *
-     * @return City
      */
     public function setCountryCode($countryCode)
     {
@@ -144,7 +140,6 @@ class City
      *
      * @param string $district
      *
-     * @return City
      */
     public function setDistrict($district)
     {
@@ -166,7 +161,6 @@ class City
      *
      * @param integer $population
      *
-     * @return City
      */
     public function setPopulation($population)
     {
@@ -174,25 +168,24 @@ class City
     }
     
     /**
-     * Get countryName
+     * Get country
      *
      * @return string
      */
-    public function getCountryName()
+    public function getCountry()
     {
         return $this->country->getName();
     }
     
     /**
-     * Set countryName
+     * Set country
      *
-     * @param string $countryName
+     * @param string $country
      *
-     * @return City
      */
-    public function setCountryName($countryName)
+    public function setCountry($country)
     {
-        $this->country->setName($countryName);
+        $this->country->setName($country);
     }
     
     /**
@@ -210,7 +203,6 @@ class City
      *
      * @param string $countryLanguage
      *
-     * @return City
      */
     public function setCountryLanguage($countryLanguage)
     {

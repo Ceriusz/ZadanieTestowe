@@ -6,7 +6,7 @@ use Application\Entity\City;
 
 class CityRepository extends EntityRepository
 {
-    public function findCities()
+    public function findCities($orderBy = 'c.name', $order = 'asc')
     {
         $entityManager = $this->getEntityManager();
 
@@ -14,7 +14,7 @@ class CityRepository extends EntityRepository
 
         $queryBuilder->select('c')
             ->from(City::class, 'c')
-            ->orderBy('c.name', 'ASC');
+            ->orderBy($orderBy, $order);
 
         return $queryBuilder->getQuery();
     }

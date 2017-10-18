@@ -164,7 +164,6 @@ class Country
      *
      * @param string $name
      *
-     * @return Country
      */
     public function setName($name)
     {
@@ -186,7 +185,6 @@ class Country
      *
      * @param integer $capital
      *
-     * @return Country
      */
     public function setCapital($capital)
     {
@@ -208,7 +206,6 @@ class Country
      *
      * @param string $code
      *
-     * @return Country
      */
     public function setCode($code)
     {
@@ -230,7 +227,6 @@ class Country
      *
      * @param string $code2
      *
-     * @return Country
      */
     public function setCode2($code2)
     {
@@ -252,7 +248,6 @@ class Country
      *
      * @param string $continent
      *
-     * @return Country
      */
     public function setContinent($continent)
     {
@@ -278,7 +273,6 @@ class Country
      *
      * @param float $GNP
      *
-     * @return Country
      */
     public function setGNP($GNP)
     {
@@ -300,7 +294,6 @@ class Country
      *
      * @param float $GNPOld
      *
-     * @return Country
      */
     public function setGNPOld($GNPOld)
     {
@@ -322,7 +315,6 @@ class Country
      *
      * @param string $governmentForm
      *
-     * @return Country
      */
     public function setGovernmentForm($governmentForm)
     {
@@ -344,7 +336,6 @@ class Country
      *
      * @param string $headOfState
      *
-     * @return Country
      */
     public function setHeadOfState($headOfState)
     {
@@ -366,7 +357,6 @@ class Country
      *
      * @param integer $indepYear
      *
-     * @return Country
      */
     public function setIndepYear($indepYear)
     {
@@ -388,7 +378,6 @@ class Country
      *
      * @param float $lifeExpectancy
      *
-     * @return Country
      */
     public function setLifeExpectancy($lifeExpectancy)
     {
@@ -410,7 +399,6 @@ class Country
      *
      * @param string $localName
      *
-     * @return Country
      */
     public function setLocalName($localName)
     {
@@ -432,7 +420,6 @@ class Country
      *
      * @param integer $population
      *
-     * @return Country
      */
     public function setPopulation($population)
     {
@@ -454,7 +441,6 @@ class Country
      *
      * @param string $region
      *
-     * @return Country
      */
     public function setRegion($region)
     {
@@ -476,7 +462,6 @@ class Country
      *
      * @param float $surfaceArea
      *
-     * @return Country
      */
     public function setSurfaceArea($surfaceArea)
     {

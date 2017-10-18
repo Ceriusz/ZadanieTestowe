@@ -16,6 +16,7 @@ use Zend\View\Model\JsonModel;
 use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator as DoctrineAdapter;
 use Doctrine\ORM\Tools\Pagination\Paginator as ORMPaginator;
 use Zend\Paginator\Paginator;
+use Application\Controller\FieldExtractorController;
 
 class IndexController extends AbstractActionController
 {
@@ -27,61 +28,28 @@ class IndexController extends AbstractActionController
         $this->em = $em;
     }
     
-    public function indexAction()
-    {
-        return [
-            'cities' => $this->em->getRepository(City::class)->find(1),
-        ];
-    }
-    
     public function citiesAction()
     {
+        $orderBy = 'c.'.$this->params()->fromQuery('orderBy', 'name');
+        $orderByView = $this->params()->fromQuery('orderBy', 'name');
+        $order = $this->params()->fromQuery('order', 'asc');
+        
         $page = $this->params()->fromQuery('page', 1);
-        $query = $this->em->getRepository(City::class)->findCities();
+        $query = $this->em->getRepository(City::class)->findCities($orderBy, $order);
         
         $adapter = new DoctrineAdapter(new ORMPaginator($query, false));
         $paginator = new Paginator($adapter);
         $paginator->setDefaultItemCountPerPage(10);        
         $paginator->setCurrentPageNumber($page);
         
+        $extractor = new FieldExtractorController();
+        
         return [
             'cities' => $paginator,
-            'fields' => $this->extractFields(City::class),
+            'fields' => $extractor->extractFields(City::class),
+            'page' => $page,
+            'orderBy' => $orderByView,
+            'order' => $order,
         ];
-    }
-
-    public function ajaxGetCitiesAction()
-    {
-        return new JsonModel($this->jsonExtractFields($this->em->getRepository(City::class)->findBy([], ['name' => 'desc'], 10)));
-    }
-    
-    private function extractFields($className)
-    {
-        $classMethods = get_class_methods($className);
-
-        foreach ($classMethods as $classMethod)
-        {
-            if ((strpos($classMethod, 'get') > -1) && $classMethod != 'getId')
-            {
-                $fields['methods'][] = $classMethod;
-                $fields['headers'][] = substr($classMethod, 3);
-            }
-        }
-
-        return $fields;
-    }
-    
-    private function jsonExtractFields($objectArray)
-    {
-        $fields = $this->extractFields(get_class($objectArray[0]));
-        foreach ($objectArray as $object)
-        {
-            foreach ($fields['methods'] as $field)
-            {
-                $jsonExtractFields[$object->getId()][substr($field, 3)] = $object->$field(); 
-            }
-        }
-       
-        return $jsonExtractFields;
     }
 }

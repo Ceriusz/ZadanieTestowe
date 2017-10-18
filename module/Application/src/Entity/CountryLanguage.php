@@ -71,7 +71,6 @@ class CountryLanguage
      *
      * @param string $countryCode
      *
-     * @return CountryLanguage
      */
     public function setCountryCode($countryCode)
     {
@@ -93,7 +92,6 @@ class CountryLanguage
      *
      * @param string $language
      *
-     * @return CountryLanguage
      */
     public function setLanguage($language)
     {
@@ -115,7 +113,6 @@ class CountryLanguage
      *
      * @param string $isOfficial
      *
-     * @return CountryLanguage
      */
     public function setIsOfficial($isOfficial)
     {
@@ -140,7 +137,6 @@ class CountryLanguage
      *
      * @param float $percentage
      *
-     * @return CountryLanguage
      */
     public function setPercentage($percentage)
     {
