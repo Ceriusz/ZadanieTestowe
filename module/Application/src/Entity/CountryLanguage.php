@@ -50,13 +50,6 @@ class CountryLanguage
     private $percentage;
     
     /**
-     * @ORM\OneToMany(targetEntity="\Application\Entity\City", mappedBy="countryLanguage")
-     * @ORM\JoinColumn(name="country_code", referencedColumnName="country_code")
-     */
-    private $city;
-
-    
-    /**
      * Get countryCode
      *
      * @return string

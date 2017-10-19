@@ -1,4 +1,22 @@
+<form name="search" action="<?php echo $this->url('application').'?page='.$page.'&orderBy='.$orderBy.'&order='.$order ?>" method="post">        
+    <?php
+    foreach ($fields['headers'] as $field)
+    {	
+        ?> 
+        <div class="form-group">
+            <label for="<?php echo $field ?>"><?php echo $field ?></label>
+            <input name="<?php echo lcfirst($field) ?>" type="text" class="form-control" 
+                   placeholder="<?php echo $field ?>">
+        </div>
+        <?php 
+    }
+    ?>  
+    <input name="submit" type="submit" class="btn btn-primary" value="Submit">
+</form>
+
+
 <table class="table table-bordered">
+    <br>
     <tr>
     <?php
     foreach ($fields['headers'] as $field)

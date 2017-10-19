@@ -2,7 +2,6 @@
 namespace Application\Controller;
 
 use Zend\ServiceManager\Factory\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 use Interop\Container\ContainerInterface;
 use Application\Controller\IndexController;
 

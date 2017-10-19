@@ -143,10 +143,15 @@ class Country
     private $surfaceArea;
     
     /**
-     * @ORM\OneToMany(targetEntity="\Application\Entity\City", mappedBy="country")
-     * @ORM\JoinColumn(name="country_code", referencedColumnName="code")
+     * @ORM\ManyToOne(targetEntity="\Application\Entity\CountryLanguage", inversedBy="country")
+     * @ORM\JoinColumn(name="code", referencedColumnName="country_code")
      */
-    private $city;
+    private $countryLanguage;
+    
+    public function __construct() 
+    {
+        $this->countryLanguage = new ArrayCollection();
+    }
     
     
     /**
@@ -467,4 +472,25 @@ class Country
     {
         $this->surfaceArea = $surfaceArea;
     }
+    
+    /**
+     * Get countryLanguage
+     *
+     * @return string
+     */
+    public function getCountryLanguage()
+    {
+        return $this->countryLanguage->getLanguage();
+    }
+    
+    /**
+     * Set countryLanguage
+     *
+     * @param string $countryLanguage
+     *
+     */
+    public function setCountryLanguage($countryLanguage)
+    {
+        $this->countryLanguage->setLanguage($countryLanguage);
+    }    
 }

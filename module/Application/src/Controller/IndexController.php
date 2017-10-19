@@ -8,15 +8,13 @@
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
 use Doctrine\ORM\EntityManager;
 use Application\Entity\City;
-use Application\Entity\CountryLanguage;
-use Zend\View\Model\JsonModel;
 use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator as DoctrineAdapter;
 use Doctrine\ORM\Tools\Pagination\Paginator as ORMPaginator;
 use Zend\Paginator\Paginator;
-use Application\Controller\FieldExtractorController;
+use Application\Service\FieldExtractorService;
+use Application\Service\PrepareWhereService;
 
 class IndexController extends AbstractActionController
 {
@@ -34,15 +32,27 @@ class IndexController extends AbstractActionController
         $orderByView = $this->params()->fromQuery('orderBy', 'name');
         $order = $this->params()->fromQuery('order', 'asc');
         
-        $page = $this->params()->fromQuery('page', 1);
-        $query = $this->em->getRepository(City::class)->findCities($orderBy, $order);
+        if($this->getRequest()->isPost()) 
+        {
+          $data = $this->params()->fromPost();
+        }
+        else
+        {
+            $data = array();
+        }
         
+        $preparer = new PrepareWhereService();
+        $where = $preparer->prepareWhere($data);
+        
+        $page = $this->params()->fromQuery('page', 1);
+        $query = $this->em->getRepository(City::class)->findCities($orderBy, $order, $where);
+      
         $adapter = new DoctrineAdapter(new ORMPaginator($query, false));
         $paginator = new Paginator($adapter);
         $paginator->setDefaultItemCountPerPage(10);        
         $paginator->setCurrentPageNumber($page);
         
-        $extractor = new FieldExtractorController();
+        $extractor = new FieldExtractorService();
         
         return [
             'cities' => $paginator,

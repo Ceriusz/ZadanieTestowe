@@ -60,16 +60,10 @@ class City
      */
     private $country;
     
-    /**
-     * @ORM\ManyToOne(targetEntity="\Application\Entity\CountryLanguage", inversedBy="city")
-     * @ORM\JoinColumn(name="country_code", referencedColumnName="country_code")
-     */
-    private $countryLanguage;
     
     public function __construct() 
     {
         $this->country = new ArrayCollection();
-        $this->countryLanguage = new ArrayCollection();
     }
     
         
@@ -195,17 +189,17 @@ class City
      */
     public function getCountryLanguage()
     {
-        return $this->countryLanguage->getLanguage();
+        return $this->country->getCountryLanguage();
     }
     
-    /**
-     * Set countryLanguage
+     /**
+     * Set country
      *
      * @param string $countryLanguage
      *
      */
     public function setCountryLanguage($countryLanguage)
     {
-        $this->countryLanguage->setLanguage($countryLanguage);
-    }       
+        return $this->country->setCountryLanguage($countryLanguage);
+    }  
 }

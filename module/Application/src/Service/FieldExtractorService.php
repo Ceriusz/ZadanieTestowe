@@ -1,8 +1,9 @@
 <?php
+namespace Application\Service;
 
-namespace Application\Controller;
+use Zend\View\Model\JsonModel;
 
-class FieldExtractorController
+class FieldExtractorService
 {
     
     public function ajaxGetCitiesAction()
