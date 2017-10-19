@@ -1,36 +1,36 @@
 <table class="table table-bordered">
-	<tr>
-	<?php
-	foreach ($fields['headers'] as $field)
-	{	
-		?> 
-		<th><?php echo $field ?> <a class="sort" href="<?php echo $this->url('application').'?page='.$page.'&orderBy='.lcfirst($field).'&order=desc' ?>">^</a> <a class="sort" href="<?php echo $this->url('application').'?page='.$page.'&orderBy='.lcfirst($field).'&order=asc' ?>">?</a> </th>
-		<?php 
-	}
-	?>
-	</tr>
-	<?php 
-	foreach ($cities as $city)
-	{
-		?>
-		<tr>
-		<?php
-		foreach ($fields['methods'] as $field)
-		{	
-			?> 
-			<td><?php echo $city->$field() ?></td>
-			<?php 
-		}
-		?>
-		</tr>
-	<?php
-	}
-	?>
+    <tr>
+    <?php
+    foreach ($fields['headers'] as $field)
+    {	
+        ?> 
+        <th><?php echo $field ?> <a class="sort" href="<?php echo $this->url('application').'?page='.$page.'&orderBy='.lcfirst($field).'&order=desc' ?>"><img src="<?php echo $this->url('img') . '/arrow_down.png' ?>" /></a> <a class="sort" href="<?php echo $this->url('application').'?page='.$page.'&orderBy='.lcfirst($field).'&order=asc' ?>"><img src="<?php echo $this->url('img') . '/arrow_up.png' ?>" /></a> </th>
+        <?php 
+    }
+    ?>
+    </tr>
+    <?php 
+    foreach ($cities as $city)
+    {
+        ?>
+        <tr>
+        <?php
+        foreach ($fields['methods'] as $field)
+        {	
+            ?> 
+            <td><?php echo $city->$field() ?></td>
+            <?php 
+        }
+        ?>
+        </tr>
+    <?php
+    }
+    ?>
 </table>
 
 <?= $this->paginationControl($cities,
-            'Sliding',
-            'application/partial/paginator',            
-            ['route' => 'application', 'orderBy' => $orderBy, 'order' => $order] ); ?>
+                            'Sliding',
+                            'application/partial/paginator',            
+                            ['route' => 'application', 'orderBy' => $orderBy, 'order' => $order] ); ?>
 
-<script src = "../../../../../zadanietestowe/public/js/ajaxGetCities.js"></script>
+<script src = "<?php $this->url('js') .'/ajaxGetCities.js' ?>"></script>

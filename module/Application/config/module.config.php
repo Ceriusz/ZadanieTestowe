@@ -35,6 +35,18 @@ return [
                     ],
                 ],
             ],
+            'img' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/img',
+                ],
+            ],
+            'js' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/js',
+                ],
+            ],
         ],
     ],
     'controllers' => [
